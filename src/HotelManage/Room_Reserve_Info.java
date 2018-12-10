@@ -175,7 +175,7 @@ public class Room_Reserve_Info implements ActionListener {
     private JTable Reservetable = new JTable(contents, columns);
 
     public void RmNb_PopUp() {
-        RmNm_PopUp_frame.setTitle("ȣ�� �˻�");
+        RmNm_PopUp_frame.setTitle("검색 결과");
         RmNm_PopUp_frame.setBounds(880, 175, 300, 500);
         RmNm_PopUp_frame.setLayout(null);
 
