@@ -1,11 +1,9 @@
 package HotelManage;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
+
+import java.awt.*;
 import java.awt.event.*;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,8 +12,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class Room_Reserve_Info implements ActionListener {
@@ -33,7 +29,6 @@ public class Room_Reserve_Info implements ActionListener {
     private JButton ReserveRegistrationCancelButton = new JButton("취소");
     private JButton RmNbSearchButton = new JButton("검색");
     private JButton RmSearchButton = new JButton("검색");
-
 
 //    JTextField RRPF_BookingID_Box = new JTextField();
     JTextField RRPF_CustomerID_Box = new JTextField();
@@ -172,7 +167,39 @@ public class Room_Reserve_Info implements ActionListener {
             {"1008", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",},
             {"1009", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",},
     };
-    private JTable Reservetable = new JTable(contents, columns);
+    private DefaultTableModel dtm = new DefaultTableModel(contents, columns);
+    private JTable Reservetable = new JTable(dtm);
+//      private final Color green = Color.GREEN;
+//      public Component prepareRenderer(TableCellRenderer tcr, int row, int column){
+//          Component c = super.prepareRenderer(tcr, row, column);
+//          try {
+//              String sql = "select * from BookingInfo";
+//              PreparedStatement stmt = dbTest.prepareStatement(sql);
+//              ResultSet rs = stmt.executeQuery();
+//              Object roomid = Reservetable.getValueAt(row, column);
+//
+//              while(rs.next()){
+//                  Integer inDate = Integer.parseInt(rs.getString("checkindate"));
+//                  Integer outDate = Integer.parseInt(rs.getString("checkoutdate"));
+//                  if(inDate % 10000 > 199){
+//                  }
+//                  else {
+//                      if (roomid.equals(rs.getString("roomID"))) {
+//                          if (column >= inDate % 100 && column <= outDate%100) {
+//                                c.setBackground(green);
+//                          }
+//                      }
+//                  }
+//              }
+//          }catch(SQLException e){
+//              e.printStackTrace();
+//          }
+//          Object roomid = Reservetable.getValueAt(row, column);
+//
+//
+//          return c;
+//      }
+//    };
 
     public void RmNb_PopUp() {
         RmNm_PopUp_frame.setTitle("검색 결과");
@@ -532,7 +559,6 @@ public class Room_Reserve_Info implements ActionListener {
 
     }
 
-
     public Room_Reserve_Info(Connection dbTest) {
         this.dbTest = dbTest;
         //��ü �� �г� ����
@@ -541,6 +567,7 @@ public class Room_Reserve_Info implements ActionListener {
         //������� �� �г� �����
         JPanel ReservationPanel = new JPanel();
         ReservationPanel.setLayout(null);
+
         JScrollPane scroll = new JScrollPane(Reservetable);
         scroll.setBounds(20, 20, 1000, 600);
         JButton ReserveRegistration = ReserveRegistrationButton;
@@ -554,7 +581,6 @@ public class Room_Reserve_Info implements ActionListener {
         ReservationPanel.add(scroll);
         ReservationPanel.add(ReserveRegistration);
         ReservationPanel.add(ReserveRegistrationCancel);
-
 
 
         //�˻� �� �г� �����
