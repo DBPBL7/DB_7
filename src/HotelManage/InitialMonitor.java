@@ -100,37 +100,37 @@ public class InitialMonitor implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == basicmanageButton){
             if(position.equals("Manager")){ new Hotel(dbTest); }
-            if(position.equals("Staff")){ System.out.println("staff deny");}
-            if(position.equals("Housekeeper")){System.out.println("housekeeper deny"); }
-            if(position.equals("Accountant")){System.out.println("accountant deny"); }
+            if(position.equals("Staff")){new DeniedMonitor();}
+            if(position.equals("Housekeeper")){new DeniedMonitor(); }
+            if(position.equals("Accountant")){new DeniedMonitor(); }
             //new window for basic management monitor
         }
         if(e.getSource() == accountButton){
             if(position.equals("Manager")){System.out.println("account - manager");}
-            if(position.equals("Staff")){System.out.println("staff deny");}
-            if(position.equals("Housekeeper")){System.out.println("housekeeper deny");}
+            if(position.equals("Staff")){new DeniedMonitor();}
+            if(position.equals("Housekeeper")){new DeniedMonitor();}
             if(position.equals("Accountant")){System.out.println("account - accountant");}
             //new window for account manage monitor
         }
         if(e.getSource() == bookingButton){
             if(position.equals("Manager")){new Room_Reserve_Info(dbTest);}
             if(position.equals("Staff")){new Room_Reserve_Info(dbTest);}
-            if(position.equals("Housekeeper")){System.out.println("housekeeper deny");}
-            if(position.equals("Accountant")){System.out.println("accountant deny");}
+            if(position.equals("Housekeeper")){new DeniedMonitor();}
+            if(position.equals("Accountant")){new DeniedMonitor();}
             //new window for booking manage monitor
         }
         if(e.getSource() == roomButton){
             if(position.equals("Manager")){System.out.println("room - manager");}
             if(position.equals("Staff")){System.out.println("room - staff");}
             if(position.equals("Housekeeper")){ System.out.println("room - housekeeper");}
-            if(position.equals("Accountant")){System.out.println("accountant deny");}
+            if(position.equals("Accountant")){new DeniedMonitor();}
             //new window for room manage monitor
         }
         if (e.getSource() == customerButton) {
             if(position.equals("Manager")){new Customer_List(dbTest);}
             if(position.equals("Staff")){new Customer_List(dbTest);}
-            if(position.equals("Housekeeper")){System.out.println("housekeeper deny");}
-            if(position.equals("Accountant")){System.out.println("accountant deny"); }
+            if(position.equals("Housekeeper")){new DeniedMonitor();}
+            if(position.equals("Accountant")){new DeniedMonitor(); }
             //new window for customer manage monitor
         }
     }
